@@ -1,9 +1,26 @@
 @import '../main';
 
-.welcomePage {
+.dashboard-page {
   @include margin-x(4%);
   @include margin-y(20px);
   
+  .poweredBy {
+    // Investing.com original style
+    font-family: Arial, Helvetica, sans-serif;
+
+    span {
+      font-size: 1.1rem;
+      color: #333;
+      text-decoration: none;
+
+      .underline_link {
+        font-size: 1.1rem;
+        color: #06529D; 
+        font-weight: bold;
+      }
+    }
+  }
+
   .indexLinks {
     font-size: 1.2rem;
 

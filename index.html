@@ -2,7 +2,7 @@
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Shortcut of Market Watch</title>
+  <title>Market Dashboard</title>
   <meta charset="UTF-8">
   <meta name="description" content="Stock Market monitor developed by and developed for individual investor">
   <meta name="keywords" content="stock market, investment market, market watch, market monitor, personal investment widget">
@@ -10,21 +10,36 @@
 
   <link rel="stylesheet" href="./styles/pages/index.min.css">
 </head>
-<body>
+<body class="dashboard-page">
 
-  <main class="welcomePage">
-    <h1>Welcome to kevin-and-idea.com</h1>
+  <main>
+    <!-- <h1>Market Dashboard</h1> -->
 
-    <ul class="indexLinks">
-      <li>
-        <a href="http://marketwatch.kevin-and-idea.com">Go to Market Watch Demo</a>
-      </li>
-      <li>
-        <a href="https://github.com/kevin-and-dev">Github Profile</a>
-      </li>
-    </ul>
+    <div>
+      <iframe src="https://sslecal2.investing.com?columns=exc_flags,exc_currency,exc_importance,exc_actual,exc_forecast,exc_previous&importance=2,3&features=datepicker,timezone&countries=6,37,72,17,39,35,11,4,5&calType=week&timeZone=15&lang=51" 
+width="700" height="1200" frameborder="0" allowtransparency="true" marginwidth="0" marginheight="0" style="background: #ececec"></iframe>
+      <div class="poweredBy">
+        <span>Real Time Economic Calendar provided by <a href="https://uk.Investing.com/" rel="nofollow" target="_blank" class="underline_link">Investing.com UK</a>.</span>
+      </div>
+    </div>
 
   </main>
+
+  <footer>
+    <ul class="indexLinks">
+      <li>
+        <a href="https://github.com/kevin-and-dev">Kevin's Github Profile</a>
+      </li>
+    </ul>
+  </footer>
+
+  <script>
+    setTimeout(() => {
+      var iframe = document.getElementsByTagName('iframe')[0];
+      iframe.style.background = '#ececec';
+      iframe.contentWindow.document.body.style.backgroundColor = '#ececec';
+    }, 500);
+  </script>
 
 </body>
 </html>

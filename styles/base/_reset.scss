@@ -62,3 +62,17 @@ body {
   }
 
 }
+
+footer {
+  margin-top: 20px;
+  border-top: 1px solid #999;
+  width: 100vw;
+  padding-top: 20px;
+  padding-bottom: 20px;
+
+  ul {
+    list-style: none;
+    margin-block-start: 0;
+    margin-block-end: 0;
+  }
+}
