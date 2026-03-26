@@ -24,49 +24,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
 
     <script type="text/javascript" src="https://s3.tradingview.com/tv.js"></script>
-    <script>
-        const initWidgetOption = {
-            "width": 300,
-            "height": 300,
-
-            "interval": "D",
-            "timezone": "exchange",
-            "theme": "light",
-            "style": "9",
-            "locale": "en",
-            "toolbar_bg": "#f1f3f6",
-            "enable_publishing": false,
-            "hide_top_toolbar": true,
-            "save_image": false,
-        }
-
-        const onClick = () => {
-            const s = document.getElementById("symbolInput").value;
-            const sAry = s.split(",");
-            const w = document.getElementById("chartWrapper");
-
-            sAry.forEach(e => {
-
-                // Create Chart element
-                const idKey = `tradingview_`+ (Math.random() * 999999);
-
-                const c = document.createElement('div');
-                c.setAttribute('id', idKey);
-                c.classList.add("tradingview_widget");
-                w.append(c);
-
-                // Load chart
-                new TradingView.widget({
-                    ...initWidgetOption,
-                    ...{
-                        "symbol": e,
-                        "container_id": idKey
-                    }
-                })
-
-            });
-        }
-    </script>
+    <script src="scripts/main.js"></script>
 </head>
 <body>
 

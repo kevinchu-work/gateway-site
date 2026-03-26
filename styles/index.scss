@@ -1,3 +1,9 @@
+// Variables
+$primary-color: #0d6efd;
+$secondary-color: #6c757d;
+$font-family: sans-serif;
+$border-radius: 4px;
+
 .tradingview-widget-container {
   display: flex;
   align-items: flex-start;
@@ -11,4 +17,27 @@
       margin-left: 8px;
     }
   }
+}
+
+// Button Styling (using variables)
+.btn {
+  padding: 0.5rem 1rem;
+  border-radius: $border-radius;
+  font-size: 0.875rem;
+  background-color: $primary-color;
+  color: white;
+  border: none;
+
+  &:hover {
+    background-color: darken($primary-color, 10%);
+  }
+}
+
+// Card Styling (using variables)
+.card {
+  border-radius: $border-radius;
+}
+
+.card-body {
+  padding: 1rem;
 }
