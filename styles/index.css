@@ -1,12 +1,42 @@
+/* Basic reset */
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: sans-serif;
+    line-height: 1.6;
+}
+
 .tradingview-widget-container {
-  display: flex;
-  align-items: flex-start;
-  justify-content: center;
-  flex-wrap: wrap;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-wrap: wrap;
 }
+
 .tradingview-widget-container .tradingview_widget {
-  margin-bottom: 8px;
+    margin-bottom: 8px;
 }
+
 .tradingview-widget-container .tradingview_widget + .tradingview_widget {
-  margin-left: 8px;
-}/*# sourceMappingURL=index.css.map */
+    margin-left: 8px;
+}
+
+/* Added for better button styling */
+.btn {
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    font-size: 0.875rem;
+}
+
+/* Added for better collapse styling */
+.card {
+    border-radius: 4px;
+}
+
+.card-body {
+    padding: 1rem;
+}

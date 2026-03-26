@@ -1,118 +1,93 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Market Monitor</title>
-  
-  <!-- CSS only -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
-  <link rel="stylesheet" href="./styles/index.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Market Monitor</title>
 
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-LZ9DWKL0PE"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-LZ9DWKL0PE');
-  </script>
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="./styles/index.css">
 
-  <!-- JavaScript Bundle with Popper -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-LZ9DWKL0PE"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-LZ9DWKL0PE');
+    </script>
 
-  <script type="text/javascript" src="https://s3.tradingview.com/tv.js"></script>
-  <script>
-    const initWidgetOption = {
-      "width": 300,
-      "height": 300,
-      
-      "interval": "D",
-      "timezone": "exchange",
-      "theme": "light",
-      "style": "9",
-      "locale": "en",
-      "toolbar_bg": "#f1f3f6",
-      "enable_publishing": false,
-      "hide_top_toolbar": true,
-      "save_image": false,
-    }
+    <!-- JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
 
-    const onClick = () => {
-      const s = document.getElementById("symbolInput").value;
-      const sAry = s.split(",");
-      const w = document.getElementById("chartWrapper");
+    <script type="text/javascript" src="https://s3.tradingview.com/tv.js"></script>
+    <script>
+        const initWidgetOption = {
+            "width": 300,
+            "height": 300,
 
-      
-      sAry.forEach(e => {
+            "interval": "D",
+            "timezone": "exchange",
+            "theme": "light",
+            "style": "9",
+            "locale": "en",
+            "toolbar_bg": "#f1f3f6",
+            "enable_publishing": false,
+            "hide_top_toolbar": true,
+            "save_image": false,
+        }
 
-        // Create Chart element
-        const idKey = `tradingview_`+ (Math.random() * 999999);
-  
-        const c = document.createElement('div');
-        c.setAttribute('id', idKey);
-        c.classList.add("tradingview_widget");
-        w.append(c);
-        
-        // Load chart
-        new TradingView.widget({
-          ...initWidgetOption,
-          ...{
-            "symbol": e,
-            "container_id": idKey
-          }
-        })
+        const onClick = () => {
+            const s = document.getElementById("symbolInput").value;
+            const sAry = s.split(",");
+            const w = document.getElementById("chartWrapper");
 
-      });
-    }
-  </script>
+            sAry.forEach(e => {
+
+                // Create Chart element
+                const idKey = `tradingview_`+ (Math.random() * 999999);
+
+                const c = document.createElement('div');
+                c.setAttribute('id', idKey);
+                c.classList.add("tradingview_widget");
+                w.append(c);
+
+                // Load chart
+                new TradingView.widget({
+                    ...initWidgetOption,
+                    ...{
+                        "symbol": e,
+                        "container_id": idKey
+                    }
+                })
+
+            });
+        }
+    </script>
 </head>
 <body>
-  
-  <section>
-    <div >
-      <a class="btn btn-primary-outline" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
-        <i class="bi bi-gear"></i>
-      </a>
+
+    <section aria-label="Settings">
+        <div>
+            <a class="btn btn-primary" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+                <i class="bi bi-gear"></i> Settings
+            </a>
+        </div>
+        <div class="collapse" id="collapseExample">
+            <div class="card card-body">
+                <textarea id="symbolInput"></textarea>
+                <button type="button" id="loadWidget">Set</button>
+            </div>
+        </div>
+    </section>
+
+
+    <div class="tradingview-widget-container" id="chartWrapper">
+        <!-- TradingView Widget END -->
     </div>
-    <div class="collapse" id="collapseExample">
-      <div class="card card-body">
-        <textarea id="symbolInput"></textarea>
-        <button type="button" id="loadWidget" onclick="onClick()">Set</button>
-      </div>
-    </div>
-  </section>
-
-
-  <!-- TradingView Widget BEGIN -->
-  <div class="tradingview-widget-container" id="chartWrapper">
-    <!-- <div id="tradingview_7af67"></div> -->
-    <!-- <div class="tradingview-widget-copyright">
-      <a href="https://www.tradingview.com/symbols/NASDAQ-AAPL/" rel="noopener" target="_blank"><span class="blue-text">AAPL Chart</span></a> by TradingView
-    </div> -->
-  </div>
-  <!-- TradingView Widget END -->
-
-
-  <script>
-    (function() {
-
-      const queryString = window.location.search;
-      const urlParams = new URLSearchParams(queryString);
-      const symbolStr = urlParams.get('s');
-      console.log(symbolStr);
-      
-      // if ('s' in urlParams) {
-        // const decodedS = decodeURI( symbolStr );
-        document.getElementById("symbolInput").value = symbolStr;
-        document.getElementById("loadWidget").click();
-      // }
-
-    })();
-  </script>
-
 
 </body>
 </html>
